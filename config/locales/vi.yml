@@ -1,0 +1,181 @@
+vi:
+  layouts:
+    erp:
+      backend:
+        sidebar:
+          products: "Quản lý sản phẩm"
+          product: "Sản phẩm"
+          category: "Chuyên mục"
+          brand: "Thương hiệu"
+  erp:
+    mini_stores:
+      backend:
+        categories:
+          create:
+            success: "Thêm chuyên mục thành công."
+          update:
+            success: "Cập nhật chuyên mục thành công."
+          destroy:
+            success: "Xóa chuyên mục thành công."
+          delete_all:
+            success: "Xóa chuyên mục được chọn thành công."
+          archive:
+            success: "Ẩn chuyên mục thành công."
+          unarchive:
+            success: "Hiện chuyên mục thành công."
+          archive_all:
+            success: "Ẩn chuyên mục được chọn thành công."
+          unarchive_all:
+            success: "Hiện chuyên mục được chọn thành công."
+          index:
+            parent_category: "Chuyên mục cha"
+            categories: "Tất cả chuyên mục"
+            create: "Thêm chuyên mục"
+            delete: "Xóa chuyên mục"
+            name: "Tên chuyên mục"
+          list:
+            delete: "Xóa chuyên mục"
+            name: "Tên chuyên mục"
+            order: "Sắp xếp"
+            no_matching_records_found: "Danh sách chuyên mục hiện tại đang trống."
+          new:
+            categories: "Tất cả chuyên mục"
+            create: "Thêm chuyên mục"
+          edit:
+            categories: "Tất cả chuyên mục"
+            create: "Thêm chuyên mục"
+          form:
+            name: "Tên chuyên mục"            
+            meta_keywords: "Từ khóa - SEO"
+            meta_description: "Mô tả - SEO"
+            enter_meta_keywords: "Nhập những từ khóa..."
+            enter_meta_description: "Nhập nội dung miêu tả..."
+            create: "Thêm chuyên mục cha"
+            choose_parent_category: "Chọn chuyên mục cha"
+            parent_category: "Chuyên mục cha"
+            seo: "SEO"
+        brands:
+          create:
+            success: "Thêm thương hiệu thành công."
+          update:
+            success: "Cập nhật thương hiệu thành công."
+          destroy:
+            success: "Xóa thương hiệu thành công."
+          delete_all:
+            success: "Các thương hiệu đã được xóa thành công."
+          archive:
+            success: "Thương hiệu đã được ẩn thành công."
+          unarchive:
+            success: "Thương hiệu đã được hiện ra thành công."
+          archive_all:
+            success: "Các thương hiệu đã được ẩn thành công."
+          unarchive_all:
+            success: "Các thương hiệu đã được hiện ra thành công."
+          index:
+            brands: "Thương hiệu"
+            create: "Thêm thương hiệu"
+            name: "Tên thương hiệu"
+            delete: "Xóa thương hiệu"
+          list:
+            name: "Tên thương hiệu"
+            delete: "Xóa thương hiệu"
+            archive_confirm: "Bạn có chắc muốn ẩn thương hiệu này?"
+            unarchive_confirm: "Bạn muốn hiển thị lại thương hiệu này?"
+            no_matching_records_found: "Danh sách thương hiệu hiện tại đang trống."
+          new:
+            brands: "Thương hiệu"
+            create: "Thêm thương hiệu"
+          edit:
+            brands: "Thương hiệu"
+            create: "Thêm thương hiệu"
+          form:
+            name: "Tên thương hiệu"
+            enter_name: "Nhập tên thương hiệu..."
+            description: "Mô tả"
+            enter_description: "Nhập mô tả..."
+            seo: "SEO"
+            meta_keywords: "Từ khóa - SEO"
+            meta_description: "Mô tả - SEO"
+            enter_meta_keywords: "Nhập những từ khóa..."
+            enter_meta_description: "Nhập nội dung miêu tả..."
+        products:
+          create:
+            success: "Thêm sản phẩm thành công."
+          update:
+            success: "Cập nhật sản phẩm thành công."
+          destroy:
+            success: "Xóa sản phẩm thành công."
+          delete_all:
+            success: "Các sản phẩm đã được xóa thành công."
+          archive:
+            success: "Sản phẩm đã được ẩn thành công."
+          unarchive:
+            success: "Sản phẩm đã được hiện ra thành công."
+          archive_all:
+            success: "Các sản phẩm đã được ẩn thành công."
+          unarchive_all:
+            success: "Các sản phẩm đã được hiện ra thành công."
+          index:
+            products: "Sản phẩm"
+            create: "Thêm sản phẩm"
+            name: "Tên sản phẩm"
+            delete: "Xóa sản phẩm"
+          list:
+            name: "Tên sản phẩm"
+            delete: "Xóa sản phẩm"
+            archive_confirm: "Bạn có chắc muốn ẩn sản phẩm này?"
+            unarchive_confirm: "Bạn muốn hiển thị lại sản phẩm này?"
+            no_matching_records_found: "Danh sách sản phẩm hiện tại đang trống."
+          new:
+            brands: "Sản phẩm"
+            create: "Thêm sản phẩm"
+          edit:
+            brands: "Sản phẩm"
+            create: "Thêm sản phẩm"
+          form:
+            information: "Thông tin sản phẩm"
+            code: "Mã sản phẩm"
+            ente_code: "Nhập mã sản phẩm..."
+            name: "Tên sản phẩm"
+            enter_name: "Nhập tên sản phẩm..."
+            short_name: "Tên ngắn gọn"
+            enter_short_name: "Nhập ngắn gọn (nếu cần)..."
+            price: "Giá bán"
+            enter_price: "Nhập giá bán..."
+            category: "Chuyên mục"
+            choose_category: "Chọn chuyên mục"
+            create_category: "Thêm chuyên mục"
+            brand: "Thương hiệu"
+            choose_brand: "Chọn thương hiệu"
+            create_brand: "Thêm thương hiệu"
+            is_deal: "Khuyến mãi"
+            product_is_deal: "Đây là sản phẩm khuyến mãi"
+            deal_price: "Giá khuyến mãi"
+            help_deal_price: "Chọn sản phẩm khuyến mãi để hiển thị giá khuyến mãi"
+            enter_deal_price: "Nhập giá bán khuyến mãi..."
+            deal_percent: "Phần trăm khuyến mãi"
+            help_deal_percent: "Chọn sản phẩm khuyến mãi để hiển thị phần trăm khuyến mãi"
+            enter_deal_percent: "Nhập phần trăm khuyến mãi..."
+            description: "Mô tả sản phẩm"
+            enter_description: "Nhập mô tả..."
+            description_seo: "Mô tả sản phẩm & SEO"
+            meta_keywords: "Từ khóa - SEO"
+            meta_description: "Mô tả - SEO"
+            enter_meta_keywords: "Nhập những từ khóa..."
+            enter_meta_description: "Nhập nội dung miêu tả..."          
+  activerecord:
+    errors:
+      models:
+        erp/mini_stores/category:
+          attributes:
+            name:
+              blank: "không được để trống."
+        erp/mini_stores/brand:
+          attributes:
+            name:
+              blank: "không được để trống."
+    attributes:
+      erp/mini_stores/category:
+        name: "Tên"
+      erp/mini_stores/brand:
+        name: "Tên"

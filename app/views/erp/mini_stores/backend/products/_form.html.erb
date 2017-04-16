@@ -1,0 +1,185 @@
+<%= form_for([erp_mini_stores, :backend, product], html: {multipart: true}) do |f| %>
+    <div class="form-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-body form">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <%= erp_form_control("text", {
+                                    name: 'product[code]',
+                                    value: product.code,
+                                    label: t('.code'),
+                                    placeholder: t('.ente_code')
+                                }) %>
+                                <%= erp_form_control("text", {
+                                    name: 'product[name]',
+                                    value: product.name,
+                                    label: t('.name'),
+                                    placeholder: t('.enter_name'),
+                                    required: true,
+                                    errors: product.errors.full_messages_for(:name)
+                                }) %>
+                                <%= erp_form_control("text", {
+                                    name: 'product[short_name]',
+                                    value: product.short_name,
+                                    label: t('.short_name'),
+                                    placeholder: t('.enter_short_name')
+                                }) %>
+                            </div>
+                            <div class="col-md-7">
+                                <%= erp_form_control("images", {
+                                    name: 'product[product_images_attributes][__index__][image_url]',
+                                    name_cache: 'product[product_images_attributes][__index__][image_url_cache]',
+                                    id_name: 'product[product_images_attributes][__index__][id]',
+                                    destroy_name: 'product[product_images_attributes][__index__][_destroy]',
+                                    label: t('.images'),
+                                    width: 122,
+                                    height: 122,
+                                    images: @product.product_images,
+                                    origin_attribute: 'image_url',
+                                    image_attribute: 'image_url.system',
+                                    image_thumb: :system,
+                                    hidden_params: [
+                                        {name: 'product[product_images_attributes][__index__][product_id]', value: @product.id}
+                                    ]
+                                }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tabbable-custom ">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="#tab_information" data-toggle="tab"> <%= t('.information') %> </a>
+                        </li>
+                        <li>
+                            <a href="#tab_description_seo" data-toggle="tab"> <%= t('.description_seo') %> </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--Website Frontend-->
+                        <div class="tab-pane active" id="tab_information">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <%= erp_form_control("number", {
+                                        name: 'product[price]',
+                                        value: product.price,
+                                        label: t('.price'),
+                                        placeholder: t('.enter_price'),
+                                        required: true,
+                                        errors: product.errors.full_messages_for(:price)
+                                    }) %>
+                                </div>
+                                <div class="col-md-4">
+                                    <%= erp_form_control("dataselect", {
+                                        name: 'product[category_id]',
+                                        value: product.category_id,
+                                        text: product.category_name,
+                                        placeholder: t('.choose_category'),
+                                        label: t('.category'),
+                                        url: erp_mini_stores.dataselect_backend_categories_path(format: 'json'),
+                                        create: {
+                                            url: erp_mini_stores.new_backend_category_path,
+                                            title: t('.create_category'),
+                                            container_selector: '.new_category',
+                                            input_selector: 'input[name="category[name]"]',
+                                            modal_size: 'lg'
+                                        },
+                                        required: true,
+                                        errors: product.errors.full_messages_for(:category_id)
+                                    }) %>
+                                </div>
+                                <div class="col-md-4">
+                                    <%= erp_form_control("dataselect", {
+                                        name: 'product[brand_id]',
+                                        value: product.brand_id,
+                                        text: product.brand_name,
+                                        placeholder: t('.choose_brand'),
+                                        label: t('.brand'),
+                                        url: erp_mini_stores.dataselect_backend_brands_path(format: 'json'),
+                                        create: {
+                                            url: erp_mini_stores.new_backend_brand_path,
+                                            title: t('.create_brand'),
+                                            container_selector: '.new_brand',
+                                            input_selector: 'input[name="brand[name]"]',
+                                            modal_size: 'full'
+                                        },
+                                        required: true,
+                                        errors: product.errors.full_messages_for(:brand_id)
+                                    }) %>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <%= erp_form_control('checkbox', {
+                                        name: 'product[is_deal]',
+                                        value: product.is_deal,
+                                        not_selected_value: 'false',
+                                        label: t('.is_deal'),
+                                        options: [{value: 'true', text: t('.product_is_deal')}]
+                                    }) %>
+                                </div>
+                                <div class="col-md-4">
+                                    <%= erp_form_control("number", {
+                                        name: 'product[deal_price]',
+                                        value: product.deal_price,
+                                        label: t('.deal_price'),
+                                        help: t('.help_deal_price'),
+                                        placeholder: t('.enter_deal_price')
+                                    }) %>
+                                </div>
+                                <div class="col-md-4">
+                                    <%= erp_form_control("number", {
+                                        name: 'product[deal_percent]',
+                                        value: product.deal_percent,
+                                        label: t('.deal_percent'),
+                                        help: t('.help_deal_percent'),
+                                        placeholder: t('.enter_deal_percent')
+                                    }) %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab_description_seo">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <%= erp_form_control("textarea", {
+                                        name: 'product[meta_keywords]',
+                                        value: product.meta_keywords,
+                                        placeholder: t('.enter_meta_keywords'),
+                                        label: t('.meta_keywords')
+                                    }) %>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= erp_form_control("textarea", {
+                                        name: 'product[meta_description]',
+                                        value: product.meta_description,
+                                        placeholder: t('.enter_meta_description'),
+                                        label: t('.meta_description')
+                                    }) %>
+                                </div>
+                            </div>
+                            <%= erp_form_control("editor", {
+                                name: 'product[description]',
+                                value: product.description,
+                                label: t('.description'),
+                                placeholder: t('.enter_description')
+                            }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_mini_stores.backend_products_path
+    }) %>
+<% end %>

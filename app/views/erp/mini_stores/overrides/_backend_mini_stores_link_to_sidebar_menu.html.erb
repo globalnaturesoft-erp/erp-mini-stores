@@ -1,0 +1,29 @@
+<li class="nav-item <%= "active open" if ["erp/mini_stores/backend/products","erp/mini_stores/backend/categories","erp/mini_stores/backend/brands"].include?(params[:controller]) %>">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-archive"></i>
+        <span class="title"><%= t('.products') %></span>
+        <% if ["erp/mini_stores/backend/products","erp/mini_stores/backend/categories","erp/mini_stores/backend/brands"].include?(params[:controller]) %>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        <% else %>
+            <span class="arrow"></span>
+        <% end %>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item">
+            <a href="<%= erp_mini_stores.backend_products_path %>" class="nav-link">
+                <span class="title"><%= t('.product') %></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<%= erp_mini_stores.backend_categories_path %>" class="nav-link">
+                <span class="title"><%= t('.category') %></span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<%= erp_mini_stores.backend_brands_path %>" class="nav-link">
+                <span class="title"><%= t('.brand') %></span>
+            </a>
+        </li>
+    </ul>
+</li>

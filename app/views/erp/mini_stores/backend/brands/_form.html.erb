@@ -1,0 +1,68 @@
+<%= form_for([erp_mini_stores, :backend, brand], html: {multipart: true}) do |f| %>
+    <div class="form-body">
+        <div class="portlet light bordered">
+            <div class="portlet-body form">
+                <div class="row">
+                    <div class="col-md-2">
+                        <%= erp_form_control('image', {
+                            img_src: brand.image_url.smaller,
+                            name: 'brand[image_url]',
+                            width: 150,
+                            height: 150
+                        }) %>
+                    </div>
+                    <div class="col-md-10">
+                        <%= erp_form_control("text", {
+                            name: 'brand[name]',
+                            value: brand.name,                   
+                            label: t('.name'),
+                            placeholder: t('.enter_name'),
+                            required: true,
+                            errors: brand.errors.full_messages_for(:name)
+                        }) %>
+                        <%= erp_form_control("textarea", {
+                            name: 'brand[description]',
+                            value: brand.description,                   
+                            label: t('.description'),
+                            placeholder: t('.enter_description')
+                        }) %>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tabbable-custom ">
+                <ul class="nav nav-tabs ">
+                    <li class="active">
+                        <a href="#tab_seo" data-toggle="tab"> <%= t('.seo') %> </a>
+                    </li>
+                </ul>
+                <div class="tab-content order-details">
+                    <div class="tab-pane addableform-table active" id="tab_property_group">
+                        <%= erp_form_control("textarea", {
+                            name: 'brand[meta_keywords]',
+                            value: brand.meta_keywords,                   
+                            label: t('.meta_keywords'),
+                            placeholder: t('.enter_meta_keywords')
+                        }) %>
+                        <%= erp_form_control("textarea", {
+                            name: 'brand[meta_description]',
+                            value: brand.meta_description,                   
+                            label: t('.meta_description'),
+                            placeholder: t('.enter_meta_description')
+                        }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_mini_stores.backend_brands_path
+    }) %>
+<% end %>
