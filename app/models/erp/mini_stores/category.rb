@@ -154,5 +154,11 @@ module Erp::MiniStores
     def self.all_unarchive
 			self.where(archived: false)
 		end
+    
+    # Get categories active
+    def self.get_parent_categories
+			self.where(archived: false)
+					.where(parent_id: nil).order(custom_order: 'ASC')
+		end
   end
 end
