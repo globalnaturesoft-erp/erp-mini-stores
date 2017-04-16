@@ -1,29 +1,28 @@
-<%= form_for([erp_mini_stores, :backend, category]) do |f| %>
+<%= form_for([erp_mini_stores, :backend, article_category]) do |f| %>
     <div class="form-body">        
         <div class="row">
             <div class="col-md-6">
                 <div class="portlet light bordered">
                     <div class="portlet-body form">
                         <%= erp_form_control("text", {
-                            name: 'category[name]',
-                            value: category.name,                   
+                            name: 'article_category[name]',
+                            value: article_category.name,                   
                             label: t('.name'),
-                            placeholder: t('.enter_name'),
                             required: true,
-                            errors: category.errors.full_messages_for(:name)
+                            errors: article_category.errors.full_messages_for(:name)
                         }) %>
                         <%= erp_form_control("dataselect", {
-                            name: 'category[parent_id]',
-                            value: category.parent_id,
-                            text: category.parent_name,
-                            placeholder: t('.choose_parent_category'),
-                            label: t('.parent_category'),
-                            url: erp_mini_stores.dataselect_backend_categories_path(format: 'json'),
+                            name: 'article_category[parent_id]',
+                            value: article_category.parent_id,
+                            text: article_category.parent_name,
+                            placeholder: t('.choose_parent_article_category'),
+                            label: t('.parent_article_category'),
+                            url: erp_mini_stores.dataselect_backend_article_categories_path(format: 'json'),
                             create: {
-                                url: erp_mini_stores.new_backend_category_path,
+                                url: erp_mini_stores.new_backend_article_category_path,
                                 title: t('.create'),
-                                container_selector: '.new_category',
-                                input_selector: 'input[name="category[name]"]'
+                                container_selector: '.new_article_category',
+                                input_selector: 'input[name="article_category[name]"]'
                             }
                         }) %>
                     </div>
@@ -42,14 +41,14 @@
                 <div class="tab-content order-details">
                     <div class="tab-pane addableform-table active" id="tab_property_group">
                         <%= erp_form_control("textarea", {
-                            name: 'category[meta_keywords]',
-                            value: category.meta_keywords,                   
+                            name: 'article_category[meta_keywords]',
+                            value: article_category.meta_keywords,                   
                             label: t('.meta_keywords'),
                             placeholder: t('.enter_meta_keywords')
                         }) %>
                         <%= erp_form_control("textarea", {
-                            name: 'category[meta_description]',
-                            value: category.meta_description,                   
+                            name: 'article_category[meta_description]',
+                            value: article_category.meta_description,                   
                             label: t('.meta_description'),
                             placeholder: t('.enter_meta_description')
                         }) %>
@@ -63,6 +62,6 @@
     }) %>
     <%= erp_component('button/cancel', {
         text: t('cancel'),
-        href: erp_mini_stores.backend_categories_path
+        href: erp_mini_stores.backend_article_categories_path
     }) %>
 <% end %>

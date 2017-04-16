@@ -7,6 +7,9 @@ vi:
           product: "Sản phẩm"
           category: "Chuyên mục"
           brand: "Thương hiệu"
+          articles: "Quản lý bài viết"
+          article: "Bài viết"
+          article_category: "Chuyên mục bài viết"
   erp:
     mini_stores:
       backend:
@@ -45,7 +48,8 @@ vi:
             categories: "Tất cả chuyên mục"
             create: "Thêm chuyên mục"
           form:
-            name: "Tên chuyên mục"            
+            name: "Tên chuyên mục"
+            enter_name: "Nhập tên chuyên mục..."
             meta_keywords: "Từ khóa - SEO"
             meta_description: "Mô tả - SEO"
             enter_meta_keywords: "Nhập những từ khóa..."
@@ -162,7 +166,98 @@ vi:
             meta_keywords: "Từ khóa - SEO"
             meta_description: "Mô tả - SEO"
             enter_meta_keywords: "Nhập những từ khóa..."
-            enter_meta_description: "Nhập nội dung miêu tả..."          
+            enter_meta_description: "Nhập nội dung miêu tả..."
+        article_categories:
+          create:
+            success: "Thêm chuyên mục bài viết thành công."
+          update:
+            success: "Cập nhật chuyên mục bài viết thành công."
+          destroy:
+            success: "Xóa chuyên mục bài viết thành công."
+          delete_all:
+            success: "Xóa chuyên mục bài viết được chọn thành công."
+          archive:
+            success: "Ẩn chuyên mục bài viết thành công."
+          unarchive:
+            success: "Hiện chuyên mục bài viết thành công."
+          archive_all:
+            success: "Ẩn chuyên mục bài viết được chọn thành công."
+          unarchive_all:
+            success: "Hiện chuyên mục bài viết được chọn thành công."
+          index:
+            parent_article_category: "Chuyên mục cha"
+            article_categories: "Tất cả chuyên mục bài viết"
+            create: "Thêm chuyên mục bài viết"
+            delete: "Xóa chuyên mục bài viết"
+            name: "Tên chuyên mục bài viết"
+          list:
+            delete: "Xóa chuyên mục bài viết"
+            name: "Tên chuyên mục bài viết"
+            order: "Sắp xếp"
+            no_matching_records_found: "Danh sách chuyên mục bài viết hiện tại đang trống."
+          new:
+            article_categories: "Tất cả chuyên mục bài viết"
+            create: "Thêm chuyên mục bài viết"
+          edit:
+            article_categories: "Tất cả chuyên mục bài viết"
+            create: "Thêm chuyên mục bài viết"
+          form:
+            name: "Tên chuyên mục bài viết"
+            enter_name: "Nhập tên chuyên mục bài viết..."
+            meta_keywords: "Từ khóa - SEO"
+            meta_description: "Mô tả - SEO"
+            enter_meta_keywords: "Nhập những từ khóa..."
+            enter_meta_description: "Nhập nội dung miêu tả..."
+            create: "Thêm chuyên mục cha"
+            choose_parent_article_category: "Chọn chuyên mục cha"
+            parent_article_category: "Chuyên mục cha"
+            seo: "SEO"
+        articles:
+          create:
+            success: "Thêm bài viết thành công."
+          update:
+            success: "Cập nhật bài viết thành công."
+          destroy:
+            success: "Xóa bài viết thành công."
+          delete_all:
+            success: "Xóa bài viết được chọn thành công."
+          archive:
+            success: "Ẩn bài viết thành công."
+          unarchive:
+            success: "Hiện bài viết thành công."
+          archive_all:
+            success: "Ẩn bài viết được chọn thành công."
+          unarchive_all:
+            success: "Hiện bài viết được chọn thành công."
+          index:
+            articles: "Tất cả bài viết"
+            create: "Thêm bài viết"
+            delete: "Xóa bài viết"
+            name: "Tên bài viết"
+          list:
+            delete: "Xóa bài viết"
+            name: "Tên bài viết"
+            order: "Sắp xếp"
+            no_matching_records_found: "Danh sách bài viết hiện tại đang trống."
+          new:
+            articles: "Tất cả bài viết"
+            create: "Thêm bài viết"
+          edit:
+            articles: "Tất cả bài viết"
+            create: "Thêm bài viết"
+          form:
+            name: "Tên bài viết"
+            enter_name: "Nhập tên bài viết..."
+            article_category: "Chuyên mục bài viết"
+            choose_article_category: "Chọn chuyên mục bài viết"
+            create_article_category: "Thêm chuyên mục bài viết"
+            meta_keywords: "Từ khóa - SEO"
+            meta_description: "Mô tả - SEO"
+            enter_meta_keywords: "Nhập những từ khóa..."
+            enter_meta_description: "Nhập nội dung miêu tả..."
+            content: "Nội dung bài viết"
+            enter_content: "Nhập nội dung bài viết..."
+            article_content: "Nội dung bài viết"            
   activerecord:
     errors:
       models:
