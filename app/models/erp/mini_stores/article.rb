@@ -1,5 +1,6 @@
 module Erp::MiniStores
   class Article < ApplicationRecord
+		validates :name, :content, :article_category_id, :presence => true
 		mount_uploader :image_url, Erp::MiniStores::ArticleImageUploader
     belongs_to :creator, class_name: "Erp::User"
     belongs_to :article_category, class_name: "Erp::MiniStores::ArticleCategory"

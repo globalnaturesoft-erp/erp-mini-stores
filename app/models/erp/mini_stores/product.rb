@@ -3,6 +3,7 @@ module Erp::MiniStores
 		#mount_uploader :image_url, Erp::MiniStores::BrandImageUploader
 		validates :name, :uniqueness => true
     validates :name, :presence => true
+    validates :price, :category_id, :brand_id, :presence => true
     belongs_to :creator, class_name: "Erp::User"
     belongs_to :category, class_name: "Erp::MiniStores::Category"
     belongs_to :brand, class_name: "Erp::MiniStores::Brand"

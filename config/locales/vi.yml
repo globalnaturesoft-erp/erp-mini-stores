@@ -272,8 +272,41 @@ vi:
           attributes:
             name:
               blank: "không được để trống."
+        erp/mini_stores/product:
+          attributes:
+            name:
+              blank: "không được để trống."
+            price:
+              blank: "không được để trống."
+            category_id:
+              blank: "không được để trống."
+            brand_id:
+              blank: "không được để trống."
+        erp/mini_stores/article:
+          attributes:
+            name:
+              blank: "không được để trống."
+            article_category_id:
+              blank: "không được để trống."
+            content:
+              blank: "không được để trống."
+        erp/mini_stores/article_category:
+          attributes:
+            name:
+              blank: "không được để trống."
     attributes:
       erp/mini_stores/category:
-        name: "Tên"
+        name: "Tên chuyên mục"
       erp/mini_stores/brand:
-        name: "Tên"
+        name: "Tên thương hiệu"
+      erp/mini_stores/product:
+        name: "Tên sản phẩm"
+        price: "Giá bán"
+        category_id: "Chuyên mục"
+        brand_id: "Thương hiệu"
+      erp/mini_stores/article:
+        name: "Tên bài viết"
+        article_category_id: "Chuyên mục bài viết"
+        content: "Nội dung bài viết"
+      erp/mini_stores/article_category:
+        name: "Tên chuyên mục bài viết"
