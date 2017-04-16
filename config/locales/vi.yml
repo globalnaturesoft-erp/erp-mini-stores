@@ -131,12 +131,15 @@ vi:
             unarchive_confirm: "Bạn muốn hiển thị lại sản phẩm này?"
             no_matching_records_found: "Danh sách sản phẩm hiện tại đang trống."
           new:
+            products: "Sản phẩm"
             brands: "Sản phẩm"
             create: "Thêm sản phẩm"
           edit:
+            products: "Sản phẩm"
             brands: "Sản phẩm"
             create: "Thêm sản phẩm"
           form:
+            images: "Hình ảnh sản phẩm"
             information: "Thông tin sản phẩm"
             code: "Mã sản phẩm"
             ente_code: "Nhập mã sản phẩm..."
