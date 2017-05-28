@@ -112,5 +112,26 @@ module Erp::MiniStores
     def self.unarchive_all
 			update_all(archived: false)
 		end
+    
+    def self.get_products_for_category(params)
+			self.get_active.where(category_id: params[:category_id])
+		end
+    
+    def self.get_newest_products(limit=5)
+			self.get_active.order('created_at ASC').limit(limit)
+		end
+    
+    def self.get_bestseller_products
+			self.get_active.where(is_bestseller: 'true')
+		end
+    
+    def self.get_hot_deal_products
+			self.get_active.where(is_deal: 'true')
+		end
+    
+#    def get_related_products
+#			Product.get_active.where(category_id: self.category_id)
+#		end
+    
   end
 end

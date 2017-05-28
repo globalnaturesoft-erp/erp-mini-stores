@@ -143,6 +143,17 @@
                                     }) %>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <%= erp_form_control('checkbox', {
+                                        name: 'product[is_bestseller]',
+                                        value: product.is_bestseller,
+                                        not_selected_value: 'false',
+                                        label: t('.is_bestseller'),
+                                        options: [{value: 'true', text: t('.product_is_bestseller')}]
+                                    }) %>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane" id="tab_description_seo">
                             <div class="row">

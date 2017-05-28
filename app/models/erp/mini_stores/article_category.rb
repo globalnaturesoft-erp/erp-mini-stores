@@ -5,8 +5,19 @@ module Erp::MiniStores
     belongs_to :creator, class_name: "Erp::User"
     belongs_to :parent, class_name: "Erp::MiniStores::ArticleCategory", optional: true
     has_many :children, class_name: "Erp::MiniStores::ArticleCategory", foreign_key: "parent_id"
+    has_many :articles, class_name: "Erp::MiniStores::Article"
     
     after_save :update_level
+    
+    # class const
+    ALIAS_ABOUT = 'about'
+    
+    # get alias for contact
+    def self.get_alias_options()
+      [
+        {text: I18n.t('about_us'),value: self::ALIAS_ABOUT}
+			]
+		end
 
     # get self and children ids
     def get_self_and_children_ids

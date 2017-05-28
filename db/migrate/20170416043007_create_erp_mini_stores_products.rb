@@ -6,6 +6,7 @@ class CreateErpMiniStoresProducts < ActiveRecord::Migration[5.0]
       t.string :short_name
       t.decimal :price
       t.string :is_deal
+      t.string :is_bestseller
       t.string :deal_price
       t.string :deal_percent
       t.text :description

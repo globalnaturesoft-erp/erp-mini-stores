@@ -163,6 +163,8 @@ vi:
             deal_percent: "Phần trăm khuyến mãi"
             help_deal_percent: "Chọn sản phẩm khuyến mãi để hiển thị phần trăm khuyến mãi"
             enter_deal_percent: "Nhập phần trăm khuyến mãi..."
+            is_bestseller: "Bán chạy"
+            product_is_bestseller: "Đây là sản phẩm bán chạy"
             description: "Mô tả sản phẩm"
             enter_description: "Nhập mô tả..."
             description_seo: "Mô tả sản phẩm & SEO"

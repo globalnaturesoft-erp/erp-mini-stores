@@ -25,6 +25,12 @@
                                 input_selector: 'input[name="article_category[name]"]'
                             }
                         }) %>
+                        <%= erp_form_control('select', {
+                            label: t('.alias'),
+                            name: 'article_category[alias]',
+                            value: article_category.alias,
+                            options: Erp::MiniStores::ArticleCategory.get_alias_options()
+                        }) %>
                     </div>
                 </div>
             </div>
