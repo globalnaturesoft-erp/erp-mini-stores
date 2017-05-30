@@ -10,6 +10,7 @@ class CreateErpMiniStoresProducts < ActiveRecord::Migration[5.0]
       t.string :deal_price
       t.string :deal_percent
       t.text :description
+      t.string :product_type
       t.text :meta_keywords
       t.text :meta_description
       t.boolean :archived, default: false

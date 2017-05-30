@@ -44,6 +44,12 @@ module Erp
       version :smaller do
 				process :resize_to_fill => [0, 50]
 			end
+      version :thumb500400 do
+				process :resize_to_fill => [500, 400]
+			end
+      version :thumb350280 do
+				process :resize_to_fill => [350, 280]
+			end
     
       # Add a white list of extensions which are allowed to be uploaded.
       # For images you might use something like this:

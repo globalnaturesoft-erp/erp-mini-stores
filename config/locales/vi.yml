@@ -1,4 +1,6 @@
 vi:
+  vertical: "Thẳng đứng (chiều dọc)"
+  horizontal: "Nằm ngang (chiều ngang)"
   layouts:
     erp:
       backend:
@@ -172,6 +174,7 @@ vi:
             meta_description: "Mô tả - SEO"
             enter_meta_keywords: "Nhập những từ khóa..."
             enter_meta_description: "Nhập nội dung miêu tả..."
+            product_type: "Kiểu dáng"
         article_categories:
           create:
             success: "Thêm chuyên mục bài viết thành công."

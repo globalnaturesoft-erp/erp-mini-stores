@@ -11,6 +11,23 @@ module Erp::MiniStores
     has_many :product_images, dependent: :destroy
     accepts_nested_attributes_for :product_images, :reject_if => lambda { |a| a[:image_url].blank? and a[:image_url_cache].blank? }, :allow_destroy => true
     
+    after_save :destroy_images_url_nil?
+    
+    TYPE_VERTICAL = 'vertical'
+    TYPE_HORIZONTAL = 'horizontal'
+    
+    def self.get_product_type_options()
+      [
+        {text: I18n.t('vertical'),value: self::TYPE_VERTICAL},
+        {text: I18n.t('horizontal'),value: self::TYPE_HORIZONTAL}
+      ]
+    end
+    
+    # get product main images
+    def main_image
+			product_images.first
+		end
+    
     def self.get_active
 			self.where(archived: false)
 		end
@@ -129,9 +146,21 @@ module Erp::MiniStores
 			self.get_active.where(is_deal: 'true')
 		end
     
-#    def get_related_products
-#			Product.get_active.where(category_id: self.category_id)
-#		end
+    def get_related_products
+			Erp::MiniStores::Product.get_active.where(category_id: self.category_id)
+		end
+    
+    def destroy_images_url_nil?
+			self.product_images.where(image_url: nil).destroy_all
+		end
+    
+    def self.get_horizontal_products
+			self.where(product_type: Erp::MiniStores::Product::TYPE_HORIZONTAL)
+		end
+    
+    def self.get_vertical_products
+			self.where(product_type: Erp::MiniStores::Product::TYPE_VERTICAL)
+		end
     
   end
 end

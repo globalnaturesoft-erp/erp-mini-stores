@@ -26,6 +26,12 @@
                                     label: t('.short_name'),
                                     placeholder: t('.enter_short_name')
                                 }) %>
+                                <%= erp_form_control('select', {
+                                    label: t('.product_type'),
+                                    name: 'product[product_type]',
+                                    value: product.product_type,
+                                    options: Erp::MiniStores::Product.get_product_type_options()
+                                }) %>
                             </div>
                             <div class="col-md-7">
                                 <%= erp_form_control("images", {
