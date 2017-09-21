@@ -9,11 +9,16 @@
                     <%= t('.name') %>
                 </th>
             <% end %>
+            <% if get_columns(params).include?("article_category") %>
+                <th>
+                    <%= t('.article_category') %>
+                </th>
+            <% end %>
             <% if get_columns(params).include?("status") %>
                 <th>
                     <%= t('status') %>
                 </th>
-            <% end %>
+            <% end %>            
             <% if get_columns(params).include?("creator") %>
                 <th>
                     <%= t('creator') %>
@@ -36,8 +41,8 @@
                 <% if get_columns(params).include?("name") %>
                     <td><%= link_to article.name, erp_mini_stores.edit_backend_article_path(article), class: 'title' %></td>
                 <% end %>
-                <% if get_columns(params).include?("product_count") %>
-                    <td><%= article.product_count %></td>
+                <% if get_columns(params).include?("article_category") %>
+                    <td><%= article.article_category_name %></td>
                 <% end %>
                 <% if get_columns(params).include?("status") %>
                 <td>
@@ -70,18 +75,20 @@
                                 href: erp_mini_stores.edit_backend_article_path(article)
                             },
                             {
-                                text: '<i class="fa fa-eye-slash"></i> '+t('archive'),
+                                text: '<i class="fa fa-ban"></i> '+t('archive'),
                                 url: erp_mini_stores.archive_backend_articles_path(id: article),
                                 data_method: 'PUT',
                                 hide: article.archived,
-                                class: 'ajax-link'
+                                class: 'ajax-link',
+                                data_confirm: t('.archive_confirm')
                             },
                             {
-                                text: '<i class="fa fa-eye"></i> '+t('unarchive'),
+                                text: '<i class="fa fa-check"></i> '+t('unarchive'),
                                 url: erp_mini_stores.unarchive_backend_articles_path(id: article),
                                 data_method: 'PUT',
                                 hide: !article.archived,
-                                class: 'ajax-link'
+                                class: 'ajax-link',
+                                data_confirm: t('.unarchive_confirm')
                             },
                             {
                                 divider: true
@@ -100,6 +107,7 @@
         <% end %>
     </tbody>
 </table>
+
 <% if @articles.empty? %>
     <div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div>
 <% end %>

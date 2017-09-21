@@ -1,0 +1,54 @@
+<%= form_for([erp_mini_stores, :backend, slideshow], html: {multipart: true}) do |f| %>
+    <div class="row">
+        <div class="col-md-2">
+            <%= erp_form_control('image', {
+                img_src: slideshow.image_url,
+                name: 'slideshow[image_url]',
+                width: 150,
+                height: 150
+            }) %>
+        </div>        
+        <div class="col-md-10">
+            <div class="portlet light bordered">
+                <div class="row">
+                    <div class="col-md-6">
+                        <%= erp_form_control("text", {
+                            name: 'slideshow[name]',
+                            value: slideshow.name,
+                            label: t('.name'),
+                            placeholder: t('.enter_name'),
+                            required: true,
+                            errors: slideshow.errors.full_messages_for(:name)
+                        }) %>
+                    </div>
+                    <div class="col-md-6">
+                        <%= erp_form_control("text", {
+                            name: 'slideshow[title]',
+                            value: slideshow.title,
+                            label: t('.title'),
+                            placeholder: t('.enter_title')
+                        }) %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <%= erp_form_control("text", {
+                            name: 'slideshow[link]',
+                            value: slideshow.link,
+                            label: t('.link'),
+                            placeholder: t('.enter_link')
+                        }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+                      
+    <%= erp_component('button/save', {
+        text: t('submit')
+    }) %>
+    <%= erp_component('button/cancel', {
+        text: t('cancel'),
+        href: erp_mini_stores.backend_slideshows_path
+    }) %>    
+<% end %>

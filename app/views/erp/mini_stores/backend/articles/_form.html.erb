@@ -9,52 +9,54 @@
             }) %>
         </div>
         <div class="col-md-10">
-            <div class="row">
-                <div class="col-md-6">
-                    <%= erp_form_control("text", {
-                        name: 'article[name]',
-                        value: article.name,
-                        label: t('.name'),
-                        placeholder: t('.enter_name'),
-                        required: true,
-                        errors: article.errors.full_messages_for(:name)
-                    }) %>
+            <div class="portlet light bordered">
+                <div class="row">
+                    <div class="col-md-6">
+                        <%= erp_form_control("text", {
+                            name: 'article[name]',
+                            value: article.name,
+                            label: t('.name'),
+                            placeholder: t('.enter_name'),
+                            required: true,
+                            errors: article.errors.full_messages_for(:name)
+                        }) %>
+                    </div>
+                    <div class="col-md-6">
+                        <%= erp_form_control("dataselect", {
+                            name: 'article[article_category_id]',
+                            value: article.article_category_id,
+                            text: article.article_category_name,
+                            placeholder: t('.choose_article_category'),
+                            label: t('.article_category'),
+                            url: erp_mini_stores.dataselect_backend_article_categories_path(format: 'json'),
+                            create: {
+                                url: erp_mini_stores.new_backend_article_category_path,
+                                title: t('.create_article_category'),
+                                container_selector: '.new_article_category',
+                                input_selector: 'input[name="article_category[name]"]'
+                            },
+                            required: true,
+                            errors: article.errors.full_messages_for(:article_category_id)
+                        }) %>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <%= erp_form_control("dataselect", {
-                        name: 'article[article_category_id]',
-                        value: article.article_category_id,
-                        text: article.article_category_name,
-                        placeholder: t('.choose_article_category'),
-                        label: t('.article_category'),
-                        url: erp_mini_stores.dataselect_backend_article_categories_path(format: 'json'),
-                        create: {
-                            url: erp_mini_stores.new_backend_article_category_path,
-                            title: t('.create_article_category'),
-                            container_selector: '.new_article_category',
-                            input_selector: 'input[name="article_category[name]"]'
-                        },
-                        required: true,
-                        errors: article.errors.full_messages_for(:article_category_id)
-                    }) %>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <%= erp_form_control("textarea", {
-                        name: 'article[meta_keywords]',
-                        value: article.meta_keywords,
-                        placeholder: t('.enter_meta_keywords'),
-                        label: t('.meta_keywords')
-                    }) %>
-                </div>
-                <div class="col-md-6">
-                    <%= erp_form_control("textarea", {
-                        name: 'article[meta_description]',
-                        value: article.meta_description,
-                        placeholder: t('.enter_meta_description'),
-                        label: t('.meta_description')
-                    }) %>
+                <div class="row">
+                    <div class="col-md-6">
+                        <%= erp_form_control("textarea", {
+                            name: 'article[meta_keywords]',
+                            value: article.meta_keywords,
+                            placeholder: t('.enter_meta_keywords'),
+                            label: t('.meta_keywords')
+                        }) %>
+                    </div>
+                    <div class="col-md-6">
+                        <%= erp_form_control("textarea", {
+                            name: 'article[meta_description]',
+                            value: article.meta_description,
+                            placeholder: t('.enter_meta_description'),
+                            label: t('.meta_description')
+                        }) %>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,11 +64,6 @@
     <div class="row">
         <div class="col-md-12">
             <div class="tabbable-custom ">
-                <ul class="nav nav-tabs ">
-                    <li class="active">
-                        <a href="#tab_content" data-toggle="tab"> <%= t('.article_content') %> </a>
-                    </li>
-                </ul>
                 <div class="tab-content order-details">
                     <div class="tab-pane addableform-table active" id="tab_content">
                         <%= erp_form_control("editor", {

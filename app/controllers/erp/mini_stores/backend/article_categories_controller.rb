@@ -19,10 +19,6 @@ module Erp
         # GET /article_categories/new
         def new
           @article_category = ArticleCategory.new
-          
-          if request.xhr?
-            render '_form', layout: nil, locals: {article_category: @article_category}
-          end
         end
     
         # GET /article_categories/1/edit
@@ -203,7 +199,7 @@ module Erp
     
           # Only allow a trusted parameter "white list" through.
           def article_category_params
-            params.fetch(:article_category, {}).permit(:name, :parent_id, :alias, :meta_keywords, :meta_description)
+            params.fetch(:article_category, {}).permit(:name, :parent_id, :alias, :hot_category, :meta_image, :meta_keywords, :meta_description)
           end
       end
     end

@@ -6,6 +6,7 @@ class CreateErpMiniStoresArticles < ActiveRecord::Migration[5.0]
       t.text :content
       t.text :meta_keywords
       t.text :meta_description
+      t.text :meta_image
       t.boolean :archived, default: false
       t.references :article_category, index: true, references: :erp_mini_stores_article_categories
       t.references :creator, index: true, references: :erp_users

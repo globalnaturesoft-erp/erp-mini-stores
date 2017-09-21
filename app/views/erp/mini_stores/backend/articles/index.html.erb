@@ -3,7 +3,7 @@
 <% end %>
 
 <% content_for :page_title do %>
-    <i class="fa fa-folder"></i> <%= t('.articles') %>
+    <i class="fa fa-newspaper-o"></i> <%= t('.articles') %>
 <% end %>
 
 <% content_for :page_toolbar do %>
@@ -19,18 +19,36 @@
     keywords: [
         {
             text: t('.name'), name: 'erp_mini_stores_articles.name'
+        },
+        {
+            text: t('.article_category'),
+            name: 'erp_mini_stores_article_categories.name',
+            select: {
+                name: 'erp_mini_stores_article_categories.id',
+                data_url: erp_mini_stores.dataselect_backend_article_categories_path
+            }
+        },
+        {
+            text: t('creator'),
+            name: 'erp_users.name',
+            select: {
+                name: 'erp_users.id',
+                data_url: erp.dataselect_backend_users_path
+            }
         }
     ],
     actions: [
         {
-            text: '<i class="fa fa-eye-slash"></i> '+t('archive'),
+            text: '<i class="fa fa-ban"></i> '+t('archive'),
             url: erp_mini_stores.archive_all_backend_articles_path,
-            data_method: 'PUT'
+            data_method: 'PUT',
+            data_confirm: t('.archive_confirm')
         },
         {
-            text: '<i class="fa fa-eye"></i> '+t('unarchive'),
+            text: '<i class="fa fa-check"></i> '+t('unarchive'),
             url: erp_mini_stores.unarchive_all_backend_articles_path,
-            data_method: 'PUT'
+            data_method: 'PUT',
+            data_confirm: t('.unarchive_confirm')
         },
         {
             divider: true
@@ -50,6 +68,9 @@
     columns: [
         {
             text: t('.name'), name: 'name', value: true, checked: true
+        },
+        {
+            text: t('.article_category'), name: 'article_category', value: true, checked: true
         },
         {
             text: t('status'), name: 'status', value: true, checked: true

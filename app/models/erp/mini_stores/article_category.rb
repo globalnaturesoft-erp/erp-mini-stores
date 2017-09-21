@@ -10,12 +10,29 @@ module Erp::MiniStores
     after_save :update_level
     
     # class const
-    ALIAS_ABOUT = 'about'
+    ALIAS_ARTICLE = 'article' # Bài viết
+    ALIAS_ABOUT = 'about_us' # Về chúng tôi
+    ALIAS_TOUR_GUIDE = 'tour_guide' # Hướng dẫn mua hàng
+    ALIAS_CUSTOMER_CARE = 'customer_care' # Chăm sóc khách hàng
+    ALIAS_TERMS_OF_SALES = "terms_of_sales" # Điều khoản mua bán hàng hóa
+    ALIAS_PAYMENT_METHODS = 'payment_methods' # Phương thức thanh toán
+    ALIAS_RETURN_POLICY_AND_REFUND = 'return_policy_and_refund' # Chính sách đổi trả & hoàn tiền
+    ALIAS_POLICY_OF_DISPUTES_COMPLAINTS = 'policy_of_disputes_complaints' # Chính sách giải quyết tranh chấp & khiếu nại
     
-    # get alias for contact
+    ALIAS_POLICY_GROUP = [ALIAS_TOUR_GUIDE, ALIAS_CUSTOMER_CARE, ALIAS_TERMS_OF_SALES, ALIAS_PAYMENT_METHODS,
+													ALIAS_RETURN_POLICY_AND_REFUND, ALIAS_RETURN_POLICY_AND_REFUND, ALIAS_POLICY_OF_DISPUTES_COMPLAINTS]
+    
+    # get alias for article category
     def self.get_alias_options()
       [
-        {text: I18n.t('about_us'),value: self::ALIAS_ABOUT}
+				{text: I18n.t('article'), value: self::ALIAS_ARTICLE},
+        {text: I18n.t('about_us'), value: self::ALIAS_ABOUT},
+        {text: I18n.t('tour_guide'), value: self::ALIAS_TOUR_GUIDE},
+        {text: I18n.t('customer_care'), value: self::ALIAS_CUSTOMER_CARE},
+        {text: I18n.t('terms_of_sales'), value: self::ALIAS_TERMS_OF_SALES},
+        {text: I18n.t('payment_methods'), value: self::ALIAS_PAYMENT_METHODS},
+        {text: I18n.t('return_policy_and_refund'), value: self::ALIAS_RETURN_POLICY_AND_REFUND},
+        {text: I18n.t('policy_of_disputes_complaints'), value: self::ALIAS_POLICY_OF_DISPUTES_COMPLAINTS}
 			]
 		end
 
@@ -91,7 +108,7 @@ module Erp::MiniStores
         end
       end
 
-      # join with users table for search creator
+      # join with parent article categories table for search article categories
       query = query.joins("LEFT JOIN erp_mini_stores_article_categories parents_erp_mini_stores_article_categories ON parents_erp_mini_stores_article_categories.id = erp_mini_stores_article_categories.parent_id")
 
       # showing archived items if show_archived is not true
@@ -119,7 +136,7 @@ module Erp::MiniStores
 
     # data for dataselect ajax
     def self.dataselect(keyword='')
-      query = self.all
+      query = self.all.order("created_at desc")
 
       if keyword.present?
         keyword = keyword.strip.downcase

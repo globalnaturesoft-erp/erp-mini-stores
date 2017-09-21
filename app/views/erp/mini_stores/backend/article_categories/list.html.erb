@@ -9,6 +9,11 @@
                     <%= t('.name') %>
                 </th>
             <% end %>
+            <% if get_columns(params).include?("parent_category") %>
+                <th>
+                    <%= t('.parent_category') %>
+                </th>
+            <% end %>
             <% if get_columns(params).include?("status") %>
                 <th>
                     <%= t('status') %>
@@ -25,7 +30,7 @@
                 </th>
             <% end %>
             <th width="7%" class="sortable text-nowrap" sort-by='erp_mini_stores_article_categories.custom_order'>
-                <%= t('custom_order') %>
+                <%= t('.custom_order') %>
             </th>
             <th width="7%"><%= t('actions') %></th>
         </tr>
@@ -39,8 +44,8 @@
                 <% if get_columns(params).include?("name") %>
                     <td><%= link_to article_category.full_name, erp_mini_stores.edit_backend_article_category_path(article_category), class: 'title' %></td>
                 <% end %>
-                <% if get_columns(params).include?("product_count") %>
-                    <td><%= article_category.product_count %></td>
+                <% if get_columns(params).include?("parent_category") %>
+                    <td><%= article_category.parent_name %></td>
                 <% end %>
                 <% if get_columns(params).include?("status") %>
                 <td>
@@ -81,18 +86,20 @@
                                 href: erp_mini_stores.edit_backend_article_category_path(article_category)
                             },
                             {
-                                text: '<i class="fa fa-eye-slash"></i> '+t('archive'),
+                                text: '<i class="fa fa-ban"></i> '+t('archive'),
                                 url: erp_mini_stores.archive_backend_article_categories_path(id: article_category),
                                 data_method: 'PUT',
                                 hide: article_category.archived,
-                                class: 'ajax-link'
+                                class: 'ajax-link',
+                                data_confirm: t('.archive_confirm')
                             },
                             {
-                                text: '<i class="fa fa-eye"></i> '+t('unarchive'),
+                                text: '<i class="fa fa-check"></i> '+t('unarchive'),
                                 url: erp_mini_stores.unarchive_backend_article_categories_path(id: article_category),
                                 data_method: 'PUT',
                                 hide: !article_category.archived,
-                                class: 'ajax-link'
+                                class: 'ajax-link',
+                                data_confirm: t('.unarchive_confirm')
                             },
                             {
                                 divider: true
@@ -111,6 +118,7 @@
         <% end %>
     </tbody>
 </table>
+
 <% if @article_categories.empty? %>
     <div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div>
 <% end %>

@@ -1,6 +1,14 @@
 vi:
   vertical: "Thẳng đứng (chiều dọc)"
   horizontal: "Nằm ngang (chiều ngang)"
+  article: "Bài viết"
+  about_us: "Sys - Về chúng tôi"
+  tour_guide: "Sys - Hướng dẫn mua hàng"
+  customer_care: "Sys - Chăm sóc khách hàng"
+  terms_of_sales: "Sys - Điều khoản mua bán hàng hóa"
+  payment_methods: "Sys - Phương thức thanh toán"
+  return_policy_and_refund: "Sys - Chính sách đổi trả & hoàn tiền"
+  policy_of_disputes_complaints: "Sys - Chính sách giải quyết tranh chấp & khiếu nại"
   layouts:
     erp:
       backend:
@@ -10,7 +18,7 @@ vi:
           category: "Chuyên mục"
           brand: "Thương hiệu"
           articles: "Quản lý bài viết"
-          article: "Bài viết"
+          article: "Tất cả bài viết"
           article_category: "Chuyên mục bài viết"
   erp:
     mini_stores:
@@ -194,15 +202,21 @@ vi:
             success: "Hiện chuyên mục bài viết được chọn thành công."
           index:
             parent_article_category: "Chuyên mục cha"
-            article_categories: "Tất cả chuyên mục bài viết"
+            article_categories: "Tất cả chuyên mục"
             create: "Thêm chuyên mục bài viết"
-            delete: "Xóa chuyên mục bài viết"
+            delete: "Xóa chuyên mục"
             name: "Tên chuyên mục bài viết"
+            parent_category: "Chuyên mục cha"
+            archive_confirm: "Bạn có chắc muốn ngưng sử dụng các chuyên mục này?"
+            unarchive_confirm: "Bạn có muốn sử dụng lại các chuyên mục này?"
           list:
-            delete: "Xóa chuyên mục bài viết"
+            delete: "Xóa chuyên mục"
             name: "Tên chuyên mục bài viết"
-            order: "Sắp xếp"
+            parent_category: "Chuyên mục cha"
+            custom_order: "Sắp xếp"
             no_matching_records_found: "Danh sách chuyên mục bài viết hiện tại đang trống."
+            archive_confirm: "Bạn có chắc muốn ngưng sử dụng chuyên mục này?"
+            unarchive_confirm: "Bạn có muốn sử dụng lại chuyên mục này?"
           new:
             article_categories: "Tất cả chuyên mục bài viết"
             create: "Thêm chuyên mục bài viết"
@@ -220,6 +234,7 @@ vi:
             choose_parent_article_category: "Chọn chuyên mục cha"
             parent_article_category: "Chuyên mục cha"
             seo: "SEO"
+            alias: "Loại chuyên mục"
         articles:
           create:
             success: "Thêm bài viết thành công."
@@ -242,11 +257,16 @@ vi:
             create: "Thêm bài viết"
             delete: "Xóa bài viết"
             name: "Tên bài viết"
+            article_category: "Chuyên mục bài viết"
+            archive_confirm: "Bạn có chắc muốn ngưng sử dụng các bài viết này?"
+            unarchive_confirm: "Bạn có muốn sử dụng lại các bài viết này?"
           list:
             delete: "Xóa bài viết"
             name: "Tên bài viết"
-            order: "Sắp xếp"
+            article_category: "Chuyên mục bài viết"
             no_matching_records_found: "Danh sách bài viết hiện tại đang trống."
+            archive_confirm: "Bạn có chắc muốn ngưng sử dụng bài viết này?"
+            unarchive_confirm: "Bạn có muốn sử dụng lại bài viết này?"
           new:
             articles: "Tất cả bài viết"
             create: "Thêm bài viết"
@@ -263,9 +283,54 @@ vi:
             meta_description: "Mô tả - SEO"
             enter_meta_keywords: "Nhập những từ khóa..."
             enter_meta_description: "Nhập nội dung miêu tả..."
-            content: "Nội dung bài viết"
+            content: "Editor nhập nội dung bài viết"
             enter_content: "Nhập nội dung bài viết..."
-            article_content: "Nội dung bài viết"            
+            article_content: "Nội dung"
+        slideshows:
+          create:
+            success: "Thêm trình chiếu thành công."
+          update:
+            success: "Cập nhật trình chiếu thành công."
+          destroy:
+            success: "Xóa trình chiếu thành công."
+          delete_all:
+            success: "Xóa trình chiếu được chọn thành công."
+          archive:
+            success: "Ẩn trình chiếu thành công."
+          unarchive:
+            success: "Hiện trình chiếu thành công."
+          archive_all:
+            success: "Ẩn trình chiếu được chọn thành công."
+          unarchive_all:
+            success: "Hiện trình chiếu được chọn thành công."
+          index:
+            slideshows: "Tất cả trình chiếu"
+            create: "Thêm trình chiếu"
+            delete: "Xóa trình chiếu"
+            name: "Tên trình chiếu"
+            archive_confirm: "Bạn có chắc muốn ngưng sử dụng các trình chiếu này?"
+            unarchive_confirm: "Bạn có muốn sử dụng lại các trình chiếu này?"
+          list:
+            delete: "Xóa trình chiếu"
+            name: "Tên trình chiếu"
+            custom_order: "Sắp xếp"
+            no_matching_records_found: "Danh sách trình chiếu hiện tại đang trống."
+            archive_confirm: "Bạn có chắc muốn ngưng sử dụng trình chiếu này?"
+            unarchive_confirm: "Bạn có muốn sử dụng lại trình chiếu này?"
+          new:
+            slideshows: "Tất cả trình chiếu"
+            create: "Thêm trình chiếu"
+          edit:
+            slideshows: "Tất cả trình chiếu"
+            create: "Thêm trình chiếu"
+          form:
+            image: "Hình ảnh cần trình chiếu"
+            name: "Tên trình chiếu"
+            enter_name: "Nhập tên trình chiếu..."
+            link: "Địa chỉ liên kết"
+            enter_link: "Nhập địa chỉ liên kết"
+            title: "Nhãn trình chiếu"
+            enter_title: "Nhập nhãn trình chiếu"
   activerecord:
     errors:
       models:
@@ -299,6 +364,10 @@ vi:
           attributes:
             name:
               blank: "không được để trống."
+        erp/mini_stores/slideshow:
+          attributes:
+            name:
+              blank: "không được để trống."
     attributes:
       erp/mini_stores/category:
         name: "Tên chuyên mục"
@@ -315,3 +384,5 @@ vi:
         content: "Nội dung bài viết"
       erp/mini_stores/article_category:
         name: "Tên chuyên mục bài viết"
+      erp/mini_stores/slideshow:
+        name: "Tên trình chiếu"
