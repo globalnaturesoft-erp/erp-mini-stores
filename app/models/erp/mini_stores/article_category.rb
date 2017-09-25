@@ -35,6 +35,50 @@ module Erp::MiniStores
         {text: I18n.t('policy_of_disputes_complaints'), value: self::ALIAS_POLICY_OF_DISPUTES_COMPLAINTS}
 			]
 		end
+    
+    def self.get_active
+			self.where(archived: false)
+		end
+    
+    def self.get_category_by_alias_blog
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_ARTICLE).first
+		end
+    
+    def self.get_category_by_alias_about_us
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_ABOUT).first
+		end
+    
+    def self.get_category_by_alias_tour_guide
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_TOUR_GUIDE).first
+		end
+    
+    def self.get_category_by_alias_customer_care
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_CUSTOMER_CARE).first
+		end
+    
+    def self.get_category_by_alias_terms_of_sales
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_TERMS_OF_SALES).first
+		end
+    
+    def self.get_category_by_alias_payment_methods
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_PAYMENT_METHODS).first
+		end
+    
+    def self.get_category_by_alias_return_policy_and_refund
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_RETURN_POLICY_AND_REFUND).first
+		end
+    
+    def self.get_category_by_alias_policy_of_disputes_complaints
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_POLICY_OF_DISPUTES_COMPLAINTS).first
+		end
 
     # get self and children ids
     def get_self_and_children_ids
@@ -65,11 +109,6 @@ module Erp::MiniStores
 			end
 
 			level
-		end
-
-    # init custom order
-    def init_custom_order
-			self.update_column(:custom_order, self.class.maximum("custom_order").to_i + 1)
 		end
 
     # Filters
@@ -161,7 +200,12 @@ module Erp::MiniStores
     def self.unarchive_all
 			update_all(archived: false)
 		end
-
+		
+		# display name
+    def article_category_name
+			self.name
+		end
+		
     # display name
     def parent_name
 			parent.present? ? parent.name : ''
