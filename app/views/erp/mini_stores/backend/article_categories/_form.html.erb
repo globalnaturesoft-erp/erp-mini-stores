@@ -43,6 +43,9 @@
                     <li class="active">
                         <a href="#tab_seo" data-toggle="tab"> <%= t('.seo') %> </a>
                     </li>
+                    <li>
+                        <a href="#tab_main_menu" data-toggle="tab"> <%= t('.main_menu') %> </a>
+                    </li>
                 </ul>
                 <div class="tab-content order-details">
                     <div class="tab-pane addableform-table active" id="tab_property_group">
@@ -58,6 +61,36 @@
                             label: t('.meta_description'),
                             placeholder: t('.enter_meta_description')
                         }) %>
+                    </div>
+                    <div class="tab-pane" id="tab_main_menu">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <%= erp_form_control('image', {
+                                    img_src: article_category.icon_main,
+                                    name: 'article_category[icon_main]',
+                                    label: t('.icon_main'),
+                                    width: 50,
+                                    height: 50
+                                }) %>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="portlet light bordered">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <%= erp_form_control('checkbox', {
+                                                name: 'article_category[is_main]',
+                                                id: 'article_category_is_main',
+                                                value: article_category.is_main,
+                                                not_selected_value: 'false',
+                                                label: t('.article_category_is_main'),
+                                                help: t('.help_is_main'),
+                                                options: [{value: 'true', text: t('.is_main')}]
+                                            }) %>                                               
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

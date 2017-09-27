@@ -2,7 +2,7 @@ module Erp
   module MiniStores
     module Backend
       class SlideshowsController < Erp::Backend::BackendController
-        before_action :set_article, only: [:archive, :unarchive, :show, :edit, :update, :destroy, :move_up, :move_down]
+        before_action :set_slideshow, only: [:archive, :unarchive, :show, :edit, :update, :destroy, :move_up, :move_down]
         before_action :set_slideshows, only: [:delete_all, :archive_all, :unarchive_all]
         
         def index
@@ -20,7 +20,7 @@ module Erp
           @slideshow = Slideshow.new
 
           if request.xhr?
-            render '_form', layout: nil, locals: {article: @slideshow}
+            render '_form', layout: nil, locals: {slideshow: @slideshow}
           end
         end
 
@@ -41,11 +41,11 @@ module Erp
                 value: @slideshow.name
               }
             else
-              redirect_to erp_slideshows.edit_backend_article_path(@slideshow), notice: t('.success')
+              redirect_to erp_mini_stores.edit_backend_slideshow_path(@slideshow), notice: t('.success')
             end
           else
             if request.xhr?
-              render '_form', layout: nil, locals: {article: @slideshow}
+              render '_form', layout: nil, locals: {slideshow: @slideshow}
             else
               render :new
             end
@@ -62,7 +62,7 @@ module Erp
                 value: @slideshow.name
               }
             else
-              redirect_to erp_slideshows.edit_backend_article_path(@slideshow), notice: t('.success')
+              redirect_to erp_mini_stores.edit_backend_slideshow_path(@slideshow), notice: t('.success')
             end
           else
             render :edit
@@ -74,7 +74,7 @@ module Erp
           @slideshow.destroy
 
           respond_to do |format|
-            format.html { redirect_to erp_slideshows.backend_slideshows_path, notice: t('.success') }
+            format.html { redirect_to erp_mini_stores.backend_slideshows_path, notice: t('.success') }
             format.json {
               render json: {
                 'message': t('.success'),
@@ -193,7 +193,7 @@ module Erp
 
         private
           # Use callbacks to share common setup or constraints between actions.
-          def set_article
+          def set_slideshow
             @slideshow = Slideshow.find(params[:id])
           end
 
@@ -203,7 +203,7 @@ module Erp
 
           # Only allow a trusted parameter "white list" through.
           def slideshow_params
-            params.fetch(:article, {}).permit(:image_url, :name, :link, :title)
+            params.fetch(:slideshow, {}).permit(:image_url, :name, :link, :title)
           end
       end
     end

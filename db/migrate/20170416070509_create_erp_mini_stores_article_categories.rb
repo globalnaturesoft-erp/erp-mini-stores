@@ -4,6 +4,8 @@ class CreateErpMiniStoresArticleCategories < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :parent_id
       t.string :alias
+      t.boolean :is_main, default: false
+      t.string :icon_main
       t.integer :custom_order
       t.text :meta_keywords
       t.text :meta_description

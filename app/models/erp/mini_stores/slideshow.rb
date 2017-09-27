@@ -1,6 +1,7 @@
 module Erp::MiniStores
   class Slideshow < ApplicationRecord
 		include Erp::CustomOrder
+		mount_uploader :image_url, Erp::MiniStores::SlideshowImageUploader
 		
     validates :name, :uniqueness => true
     validates :image_url, :name, :presence => true

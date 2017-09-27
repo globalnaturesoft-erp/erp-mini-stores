@@ -4,9 +4,6 @@
             <th width='1%'>
                 <%= erp_datalist_check_all %>
             </th>
-            <% if get_columns(params).include?("image") %>
-                <th width='15%'><%= t('image') %></th>
-            <% end %>
             <% if get_columns(params).include?("name") %>
                 <th class="sortable" sort-by='erp_mini_stores_slideshows.name'>
                     <%= t('.name') %>
@@ -35,16 +32,9 @@
                 <td>
                     <%= erp_datalist_check_row(id: slideshow.id) %>
                 </td>
-                <% if get_columns(params).include?("image") %>
-                    <td>
-                        <%= erp_component('image', {
-                            object: slideshow
-                        }) %>
-                    </td>
-                <% end %>
                 <% if get_columns(params).include?("name") %>
                     <td>
-                        <%= link_to slideshow.name, erp_slideshows.edit_backend_slideshow_path(slideshow), class: 'title' %>
+                        <%= link_to slideshow.name, erp_mini_stores.edit_backend_slideshow_path(slideshow), class: 'title' %>
                     </td>
                 <% end %>
                 <% if get_columns(params).include?("status") %>
@@ -73,9 +63,9 @@
                 <td class="text-center text-semibold">
                     <%= erp_datalist_order_column({
                         item: slideshow,
-                        move_up_url: erp_slideshows.move_up_backend_slideshows_path(id: slideshow),
-                        move_down_url: erp_slideshows.move_down_backend_slideshows_path(id: slideshow),
-                        sort_by: 'erp_slideshows_slideshows.custom_order'
+                        move_up_url: erp_mini_stores.move_up_backend_slideshows_path(id: slideshow),
+                        move_down_url: erp_mini_stores.move_down_backend_slideshows_path(id: slideshow),
+                        sort_by: 'erp_mini_stores_slideshows.custom_order'
                     }) %>
                 </td>
                 <td class="text-right">
@@ -83,11 +73,11 @@
                         [
                             {
                                 text: '<i class="fa fa-edit"></i> '+t('edit'),
-                                href: erp_slideshows.edit_backend_slideshow_path(slideshow)
+                                href: erp_mini_stores.edit_backend_slideshow_path(slideshow)
                             },
                             {
                                 text: '<i class="fa fa-ban"></i> '+t('archive'),
-                                url: erp_slideshows.archive_backend_slideshows_path(id: slideshow),
+                                url: erp_mini_stores.archive_backend_slideshows_path(id: slideshow),
                                 data_method: 'PUT',
                                 hide: slideshow.archived,
                                 class: 'ajax-link',
@@ -95,7 +85,7 @@
                             },
                             {
                                 text: '<i class="fa fa-check"></i> '+t('unarchive'),
-                                url: erp_slideshows.unarchive_backend_slideshows_path(id: slideshow),
+                                url: erp_mini_stores.unarchive_backend_slideshows_path(id: slideshow),
                                 data_method: 'PUT',
                                 hide: !slideshow.archived,
                                 class: 'ajax-link',
@@ -106,7 +96,7 @@
                             },
                             {
                                 text: '<i class="fa fa-trash"></i> '+t('.delete'),
-                                url: erp_slideshows.backend_slideshow_path(slideshow),
+                                url: erp_mini_stores.backend_slideshow_path(slideshow),
                                 data_method: 'DELETE',
                                 class: 'ajax-link',
                                 data_confirm: t('delete_confirm')

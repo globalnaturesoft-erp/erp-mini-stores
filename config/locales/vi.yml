@@ -235,6 +235,11 @@ vi:
             parent_article_category: "Chuyên mục cha"
             seo: "SEO"
             alias: "Loại chuyên mục"
+            icon_main: "Icon Chuyên mục chính"
+            article_category_is_main: "Chuyên mục chính"
+            help_is_main: "Chọn chuyên mục chính để hiển thị ngoài trang chủ"
+            is_main: "Đây là Chuyên mục chính"
+            main_menu: "Chuyên mục chính"
         articles:
           create:
             success: "Thêm bài viết thành công."

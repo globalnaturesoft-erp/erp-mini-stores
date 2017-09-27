@@ -1,5 +1,7 @@
 module Erp::MiniStores
   class ArticleCategory < ApplicationRecord
+    mount_uploader :icon_main, Erp::MiniStores::IconArticleCategoryUploader
+    
     include Erp::CustomOrder
 		validates :name, :presence => true
     belongs_to :creator, class_name: "Erp::User"
