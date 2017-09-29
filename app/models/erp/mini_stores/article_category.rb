@@ -42,6 +42,10 @@ module Erp::MiniStores
 			self.where(archived: false)
 		end
     
+    def self.get_home_categories
+			self.get_active.where(is_main: true)
+		end
+    
     def self.get_category_by_alias_blog
 			query = self.get_active.where(parent_id: nil)
 			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_ARTICLE).first

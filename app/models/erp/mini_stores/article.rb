@@ -9,6 +9,36 @@ module Erp::MiniStores
 			self.where(archived: false)
 		end
     
+    # get newest articles
+    def self.newest_articles(limit=nil)
+			records = self.get_active.order('erp_mini_stores_articles.created_at DESC')
+			records = records.joins(:article_category).where("erp_mini_stores_article_categories.alias = ?", Erp::MiniStores::ArticleCategory::ALIAS_ARTICLE).limit(3)
+		end
+    
+    # get newest articles
+    def self.get_newest_articles
+			records = self.get_active.order('erp_mini_stores_articles.created_at DESC')
+			records = records.joins(:article_category).where("erp_mini_stores_article_categories.alias = ?", Erp::MiniStores::ArticleCategory::ALIAS_ARTICLE)
+		end
+    
+    # get newest articles
+    def self.get_about_us_article
+			records = self.get_active.order('erp_mini_stores_articles.created_at DESC')
+			records = records.joins(:article_category).where("erp_mini_stores_article_categories.alias = ?", Erp::MiniStores::ArticleCategory::ALIAS_ABOUT).first
+		end
+    
+    # get all blogs
+    def self.get_all_blogs(params)
+			query = self.get_active
+			if params[:blog_id].present?
+        arr_cat = Erp::MiniStores::ArticleCategory.find(params[:blog_id]).get_self_and_children_ids
+				query = query.where(article_category_id: arr_cat)
+			else
+				query = query.joins(:article_category).where('erp_mini_stores_article_categories.alias = ?', Erp::MiniStores::ArticleCategory::ALIAS_ARTICLE)
+			end
+			query = query.order('erp_mini_stores_articles.created_at DESC')
+    end
+    
     # Filters
     def self.filter(query, params)
       params = params.to_unsafe_hash
@@ -88,6 +118,10 @@ module Erp::MiniStores
     
     def article_category_name
 			article_category.present? ? article_category.name : ''
+		end
+    
+    def article_name
+			self.name
 		end
     
     def archive
