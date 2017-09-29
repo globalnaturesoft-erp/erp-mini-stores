@@ -5,9 +5,11 @@ vi:
   about_us: "Sys - Về chúng tôi"
   tour_guide: "Sys - Hướng dẫn mua hàng"
   customer_care: "Sys - Chăm sóc khách hàng"
+  capacity_profile: "Sys - Hồ sơ năng lực"
   terms_of_sales: "Sys - Điều khoản mua bán hàng hóa"
   payment_methods: "Sys - Phương thức thanh toán"
   return_policy_and_refund: "Sys - Chính sách đổi trả & hoàn tiền"
+  information_security: "Chính sách bảo mật thông tin khách hàng"
   policy_of_disputes_complaints: "Sys - Chính sách giải quyết tranh chấp & khiếu nại"
   layouts:
     erp:

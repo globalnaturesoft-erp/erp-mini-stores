@@ -16,13 +16,12 @@ module Erp::MiniStores
     ALIAS_ABOUT = 'about_us' # Về chúng tôi
     ALIAS_TOUR_GUIDE = 'tour_guide' # Hướng dẫn mua hàng
     ALIAS_CUSTOMER_CARE = 'customer_care' # Chăm sóc khách hàng
+    ALIAS_CAPACITY_PROFILE = 'capacity_profile' # Hồ sơ năng lực
     ALIAS_TERMS_OF_SALES = "terms_of_sales" # Điều khoản mua bán hàng hóa
     ALIAS_PAYMENT_METHODS = 'payment_methods' # Phương thức thanh toán
     ALIAS_RETURN_POLICY_AND_REFUND = 'return_policy_and_refund' # Chính sách đổi trả & hoàn tiền
+    ALIAS_INFORMATION_SECURITY = 'information_security' # Chính sách bảo mật thông tin khách hàng
     ALIAS_POLICY_OF_DISPUTES_COMPLAINTS = 'policy_of_disputes_complaints' # Chính sách giải quyết tranh chấp & khiếu nại
-    
-    ALIAS_POLICY_GROUP = [ALIAS_TOUR_GUIDE, ALIAS_CUSTOMER_CARE, ALIAS_TERMS_OF_SALES, ALIAS_PAYMENT_METHODS,
-													ALIAS_RETURN_POLICY_AND_REFUND, ALIAS_RETURN_POLICY_AND_REFUND, ALIAS_POLICY_OF_DISPUTES_COMPLAINTS]
     
     # get alias for article category
     def self.get_alias_options()
@@ -31,9 +30,11 @@ module Erp::MiniStores
         {text: I18n.t('about_us'), value: self::ALIAS_ABOUT},
         {text: I18n.t('tour_guide'), value: self::ALIAS_TOUR_GUIDE},
         {text: I18n.t('customer_care'), value: self::ALIAS_CUSTOMER_CARE},
+        {text: I18n.t('capacity_profile'), value: self::ALIAS_CAPACITY_PROFILE},
         {text: I18n.t('terms_of_sales'), value: self::ALIAS_TERMS_OF_SALES},
         {text: I18n.t('payment_methods'), value: self::ALIAS_PAYMENT_METHODS},
         {text: I18n.t('return_policy_and_refund'), value: self::ALIAS_RETURN_POLICY_AND_REFUND},
+        {text: I18n.t('information_security'), value: self::ALIAS_INFORMATION_SECURITY},
         {text: I18n.t('policy_of_disputes_complaints'), value: self::ALIAS_POLICY_OF_DISPUTES_COMPLAINTS}
 			]
 		end
@@ -66,6 +67,11 @@ module Erp::MiniStores
 			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_CUSTOMER_CARE).first
 		end
     
+    def self.get_category_by_alias_capacity_profile
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_CAPACITY_PROFILE).first
+		end
+    
     def self.get_category_by_alias_terms_of_sales
 			query = self.get_active.where(parent_id: nil)
 			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_TERMS_OF_SALES).first
@@ -79,6 +85,11 @@ module Erp::MiniStores
     def self.get_category_by_alias_return_policy_and_refund
 			query = self.get_active.where(parent_id: nil)
 			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_RETURN_POLICY_AND_REFUND).first
+		end
+    
+    def self.get_category_by_alias_information_security
+			query = self.get_active.where(parent_id: nil)
+			query = query.where(alias: Erp::MiniStores::ArticleCategory::ALIAS_INFORMATION_SECURITY).first
 		end
     
     def self.get_category_by_alias_policy_of_disputes_complaints
