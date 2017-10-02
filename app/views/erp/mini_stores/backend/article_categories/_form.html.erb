@@ -1,4 +1,4 @@
-<%= form_for([erp_mini_stores, :backend, article_category]) do |f| %>
+<%= form_for([erp_mini_stores, :backend, article_category], html: {multipart: true}) do |f| %>
     <div class="form-body">        
         <div class="row">
             <div class="col-md-6">
@@ -48,7 +48,7 @@
                     </li>
                 </ul>
                 <div class="tab-content order-details">
-                    <div class="tab-pane addableform-table active" id="tab_property_group">
+                    <div class="tab-pane addableform-table active" id="tab_seo">
                         <%= erp_form_control("textarea", {
                             name: 'article_category[meta_keywords]',
                             value: article_category.meta_keywords,                   
